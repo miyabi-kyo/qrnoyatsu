@@ -21,7 +21,10 @@ reset_redirect_url = "https://miyabinazo.web.fc2.com/kagimplomake/079669.html"
 @app.route("/")
 def redirect_url():
     global counter
-    url = urls[counter % len(urls)]
+    # counterが最大インデックス以上になったら、最後のURLに固定
+    if counter >= len(urls) - 1:
+    return redirect(urls[-1])
+    url = urls[counter]
     counter += 1
     return redirect(url)
 
