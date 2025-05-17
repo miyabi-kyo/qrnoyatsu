@@ -23,7 +23,7 @@ def redirect_url():
     global counter
     # counterが最大インデックス以上になったら、最後のURLに固定
     if counter >= len(urls) - 1:
-    return redirect(urls[-1])
+        return redirect(urls[-1])
     url = urls[counter]
     counter += 1
     return redirect(url)
